@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import backOfCard from "./back.png";
+import useFlip from "./hooks/useFlip.jsx";
 import "./PlayingCard.css"
 
 /* Renders a single playing card. */
 function PlayingCard({ front, back = backOfCard }) {
-  const [isFacingUp, setIsFacingUp] = useState(true);
-  const flipCard = () => {
-    setIsFacingUp(isUp => !isUp);
-  };
+  const [isFacingUp, flipCard] = useFlip(true);
   return (
     <img
       src={isFacingUp ? front : back}
