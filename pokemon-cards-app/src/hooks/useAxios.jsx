@@ -13,7 +13,11 @@ const useAxios = (isPokemon, initialValue = []) => {
     setCards(cards => [...cards, { ...response.data, id: uuid() }]);
   };
 
-  return [cards, addCard];
+  const clearCards = () => {
+    setCards(initialValue);
+  };
+
+  return [cards, addCard, clearCards];
 };
 
 export default useAxios;
